@@ -8,7 +8,8 @@ let com = '';
 function validation(req, res, next){
 	if(JSON.stringify(req.body) == '{}'){
 		next(error);
-	}else next();
+	}
+	else next();
 }
 
 function checkAuthorization(req, res, next){

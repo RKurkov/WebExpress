@@ -1,9 +1,9 @@
-POST /v1/comments HTTP/1.1
+POST /db/comments HTTP/1.1
 Host: 127.0.0.1:8000
 
-{"name":"sdfdd","age":34, "apiKey": 123}
+{"name":"sdfdd","age":34}
 
 ###
 
-GET /v1/statss HTTP/1.1
+GET /db/comments HTTP/1.1
 Host: 127.0.0.1:8000
