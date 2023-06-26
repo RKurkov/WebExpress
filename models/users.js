@@ -19,8 +19,8 @@ const schema = new db.Schema({
         type: Date,
         default: Date.now()
     },
-},
-{versionKey: false}
+    },
+    {versionKey: false}
 );
 
 module.exports = db.model('user', schema);

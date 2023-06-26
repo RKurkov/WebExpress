@@ -10,9 +10,9 @@ async function insertUser(req, res) {
 		const user = new User(req.body);
 		user
 			.save()
-			.then(() => {
-				res.status(201).json(`Данные успешно отправлены!`);
-			})
+			.then(() => 
+				res.status(201).json(`Данные успешно отправлены!`)
+			)
 			.catch((err) => handleError(res, err));
 	}
     else res.status(400).json("Данные должны быть в формате json");

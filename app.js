@@ -15,14 +15,15 @@ app.use("/db", dbAPI);
 app.use(morgan('dev'));
 app.use(helmet);
 
-// app.use((err, req, res, next) => {
-// 	if (err.statusCode) {
-// 		res.status(err.statusCode).send(err.message);
-// 	}
-// 	else {
-// 		res.status(400).json("Отправьте запрос корректно!");
-// 	}
-// });
+app.use(function (err, req, res, next) {
+	const statusCode = err.statusCode || 500;
+	const message = err.message || "Internal server error";
+	res.status(statusCode).json({ message: message });
+});
+
+app.use((req, res, next) => {
+	res.status(400).send("Такой страницы не существует!");
+});
 
 app.listen(PORT, HOST, () => {
     console.log(`Сервер запущен http://${HOST}:${PORT}`);
